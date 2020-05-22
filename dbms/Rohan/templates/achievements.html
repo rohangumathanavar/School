@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>College Achievements</title>
+</head>
+<body>
+{% with messages = get_flashed_messages() %}
+   {% if messages %}
+      {% for message in messages %}
+         {{ message }}
+      {% endfor %}
+   {% endif %}
+{% endwith %}
+<p align="right"><a href="{{url_for('logout')}}"><button type="button">Logout</button></a></p><br><br>
+<form action="" method="post">
+    college id : <input type="number" required name=id value="{{id}}" maxlength="10"><br><br>
+achievements : <input type="text" placeholder="achievements" maxlength="500" name="achiv" ><br><br>
+ <button type="submit">Submit</button>
+
+</form>
+</body>
+</html>
