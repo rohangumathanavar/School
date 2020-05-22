@@ -163,12 +163,20 @@ def search(roll, branch, loc):
     cur.execute("select c.cid,c.cname,c.loc,b.bname,b.seats,b.fees,b.cutoff from college c , branch b where c.cid=b.cid and b.cutoff>%s",ro)
     res = cur.fetchall()
     return render_template('search.html', roll=roll, loc=loc, branch=branch,res=res)
+######################################################## See Achievements #########################################
+@app.route('/see_achivements/',methods = ['GET', 'POST'])
+@is_logged_in
+def see_achivements():
+    cur.execute("select c.cid,c.cname,a.achieved from college as c, achivements as a where c.cid=a.cid")
+    data = cur.fetchall()
+    print(data)
+    return render_template('see_achivements.html', res=data)
 
 ######################################################### Studentupdate ############################################
 @app.route('/studentupdate/<roll>', methods=['GET','POST'])
 @is_logged_in
 def studentupdate(roll):
-    if request.method == 'POST':
+    if request.form == 'POST':
         stdup = request.form
         new_pass = stdup['pass']
         new_email = stdup['email']
@@ -344,6 +352,18 @@ def branchupdate(id):
     cname = cname[0]
     return render_template('branchupdate.html', data=data,id=id,cname=cname)
 
+######################################################### Achivements #############################################33
+@app.route('/achievements/<id>',methods=['GET','POST'])
+@is_logged_in
+def achievements(id):
+    if request.method=='POST':
+        achievements=request.form
+        cid=achievements['id']
+        achi=achievements['achiv']
+        cur.execute("insert into achivements (cid,achieved) values (%s,%s)",(cid,achi))
+        conn.commit()
+        return redirect(url_for('collegemain',id=id))
+    return render_template('achievements.html',id=id)
 
 ########################################################### Add Branch ##############################################
 @app.route('/addbranch/<id>',methods=['GET','POST'])
