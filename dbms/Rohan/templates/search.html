@@ -11,6 +11,7 @@
 {% endwith %}
 <a href="{{url_for('myhome',roll=roll)}}"><button type="button">MyHome</button></a><br>
 <p align="right"><a href="{{url_for('logout')}}"><button type="button">Logout</button></a></p><br>
+<a href="{{url_for('see_achivements')}}"><button type="button">See_Achivements</button></a>
 <form action="" method="POST">
 Location : <input type="text" value={{loc}} name="loct" maxlength=""><br><br>
 Branch : <input type="text" value="{{branch}}" name="clg" maxlength="10"><br><br>
