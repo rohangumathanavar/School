@@ -3,9 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="b53d7818-490b-46a9-bbb8-09d5f21b5bf8" name="Default" comment="this is about achivements">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbms/Rohan/dbms.py" beforeDir="false" afterPath="$PROJECT_DIR$/dbms/Rohan/dbms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbms/Rohan/templates/adminall.html" beforeDir="false" afterPath="$PROJECT_DIR$/dbms/Rohan/templates/adminall.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbms/Rohan/templates/studentupdate.html" beforeDir="false" afterPath="$PROJECT_DIR$/dbms/Rohan/templates/studentupdate.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Procfile" beforeDir="false" afterPath="$PROJECT_DIR$/Procfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -22,8 +21,8 @@
       <file leaf-file-name="dbms.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dbms/Rohan/dbms.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="21">
-              <caret line="188" column="21" lean-forward="true" selection-start-line="188" selection-start-column="21" selection-end-line="188" selection-end-column="21" />
+            <state relative-caret-position="5236">
+              <caret line="324" column="19" lean-forward="true" selection-start-line="324" selection-start-column="19" selection-end-line="324" selection-end-column="19" />
               <folding>
                 <element signature="e#0#82#0" expanded="true" />
               </folding>
@@ -31,11 +30,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="requirements.txt" pinned="false" current-in-tab="true">
+      <file leaf-file-name="requirements.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/requirements.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="22" column="18" lean-forward="true" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
+            <state relative-caret-position="247">
+              <caret line="24" column="18" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Procfile" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Procfile">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="21" selection-start-column="21" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -90,15 +98,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="achievements.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dbms/Rohan/templates/achievements.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" column="7" selection-start-line="20" selection-start-column="7" selection-end-line="20" selection-end-column="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -115,6 +114,7 @@
       <find>\&lt;\!DOCTYPE html\&gt;\n\&lt;html lang\=\&quot;en\&quot;\&gt;\n\&lt;head\&gt;\n    \&lt;meta charset\=\&quot;UTF\-8\&quot;\&gt;\n    \&lt;title\&gt;branchupdate\&lt;\/title\&gt;\n\&lt;\/head\&gt;\n\&lt;body\&gt;\n\{\% with messages \= get_flashed_messages\(\) \%\}\n   \{\% if messages \%\}\n      \{\% for message in messages \%\}\n         \{\{ message \}\}\n      \{\% endfor \%\}\n   \{\% endif \%\}\n\{\% endwith \%\}\n\&lt;p align\=\&quot;right\&quot;\&gt;\&lt;a href\=\&quot;\{\{url_for\(\'logout\'\)\}\}\&quot;\&gt;\&lt;button type\=\&quot;button\&quot;\&gt;Logout\&lt;\/button\&gt;\&lt;\/a\&gt;\&lt;\/p\&gt;\&lt;br\&gt;\&lt;br\&gt;\n\&lt;a href\=\&quot;\{\{url_for\(\'addbranch\'\,id\=id\)\}\}\&quot;\&gt; \&lt;button type\=\&quot;button\&quot;\&gt;Add branch\&lt;\/button\&gt;\&lt;\/a\&gt;\&lt;br\&gt;\&lt;br\&gt;\nCollege Id \: \{\{id\}\}\&lt;br\&gt;\&lt;br\&gt;\nCollege Name \: \{\{cname\}\}\n    \&lt;table\&gt;\n        \&lt;tr\&gt;\n        \&lt;th\&gt;Branch\&lt;\/th\&gt;\n        \&lt;th\&gt;seats\&lt;\/th\&gt;\n            \&lt;th\&gt;Fees\&lt;\/th\&gt;\n            \&lt;th\&gt;Cutoff\&lt;\/th\&gt;\n        \&lt;\/tr\&gt;\n        \{\% for i in data \%\}\n        \&lt;form action\=\&quot;\&quot; method\=\&quot;POST\&quot;\&gt;\n        \&lt;tr\&gt;\n\n            \&lt;td\&gt;\&lt;input type\=\&quot;text\&quot; name\=\&quot;bname\&quot; value\=\&quot;\{\{i\[1\]\}\}\&quot; maxlength\=\&quot;10\&quot;\&gt;\&lt;\/td\&gt;\n             \&lt;td\&gt;\&lt;input type\=\&quot;number\&quot; name\=\&quot;seats\&quot; value\=\&quot;\{\{i\[2\]\}\}\&quot; maxlength\=\&quot;10\&quot;\&gt;\&lt;\/td\&gt;\n             \&lt;td\&gt;\&lt;input type\=\&quot;number\&quot; name\=\&quot;cutoff\&quot; value\=\&quot;\{\{i\[3\]\}\}\&quot;maxlength\=\&quot;20\&quot;\&gt;\&lt;\/td\&gt;\n             \&lt;td\&gt;\&lt;input type\=\&quot;number\&quot; name\=\&quot;fees\&quot; value\=\&quot;\{\{i\[4\]\}\}\&quot;maxlength\=\&quot;20\&quot;\&gt;\&lt;\/td\&gt;\n                \&lt;td\&gt; \&lt;button type\=\&quot;submit\&quot;\&gt;Submit\&lt;\/button\&gt;\&lt;\/td\&gt;\n\n        \&lt;\/tr\&gt;\n             \&lt;\/form\&gt;\n        \{\% endfor \%\}\n    \&lt;\/table\&gt;\n\n\&lt;\/body\&gt;\n\&lt;\/html\&gt;</find>
       <find>logged_in</find>
       <find>collegeu</find>
+      <find>Main</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -139,6 +139,8 @@
         <option value="$PROJECT_DIR$/dbms/Rohan/templates/admincet.html" />
         <option value="$PROJECT_DIR$/dbms/Rohan/templates/studentupdate.html" />
         <option value="$PROJECT_DIR$/dbms/Rohan/dbms.py" />
+        <option value="$PROJECT_DIR$/wsgi.py" />
+        <option value="$PROJECT_DIR$/Procfile" />
       </list>
     </option>
   </component>
@@ -158,6 +160,17 @@
             <path>
               <item name="School" type="b2602c69:ProjectViewProjectNode" />
               <item name="School" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="School" type="b2602c69:ProjectViewProjectNode" />
+              <item name="School" type="462c0819:PsiDirectoryNode" />
+              <item name="dbms" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="School" type="b2602c69:ProjectViewProjectNode" />
+              <item name="School" type="462c0819:PsiDirectoryNode" />
+              <item name="dbms" type="462c0819:PsiDirectoryNode" />
+              <item name="Rohan" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -265,21 +278,29 @@
       <option name="project" value="LOCAL" />
       <updated>1593856617305</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="this is about achivements">
+      <created>1593862387186</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1593862387186</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1295" height="695" extended-state="7" />
+    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6184211" visible="true" weight="0.23003195" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6184211" visible="true" weight="0.23003195" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50158983" side_tool="true" weight="0.5413534" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.4548872" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49841017" weight="0.041353382" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Python Console" order="7" />
       <window_info id="Structure" order="1" sideWeight="0.38157895" side_tool="true" weight="0.23003195" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.49920508" weight="0.806391" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.49920508" visible="true" weight="0.28195488" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39534885" />
       <window_info id="Favorites" order="2" sideWeight="0.38157895" side_tool="true" weight="0.23003195" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -288,7 +309,6 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.45617172" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -304,20 +324,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/dbms/Rohan/templates/adminstudent.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="30" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dbms/Rohan/templates/admincet.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="23" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dbms/Rohan/templates/search.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -566,20 +572,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/wsgi.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="16" selection-start-column="16" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="24" column="18" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/dbms/Rohan/dbms.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="188" column="21" lean-forward="true" selection-start-line="188" selection-start-column="21" selection-end-line="188" selection-end-column="21" />
+        <state relative-caret-position="5236">
+          <caret line="324" column="19" lean-forward="true" selection-start-line="324" selection-start-column="19" selection-end-line="324" selection-end-column="19" />
           <folding>
             <element signature="e#0#82#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/requirements.txt">
+    <entry file="file://$PROJECT_DIR$/Procfile">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="18" lean-forward="true" selection-start-line="22" selection-start-column="18" selection-end-line="22" selection-end-column="18" />
+        <state>
+          <caret column="21" selection-start-column="21" selection-end-column="21" />
         </state>
       </provider>
     </entry>
