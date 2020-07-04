@@ -148,19 +148,19 @@ def search(roll, branch, loc):
         ro = ro[0]
         print(ro)
         if branch == 'all'and loc == 'all':
-            cur.execute("select c.cid,c.cname,c.loc,b.bname,b.seats,b.fees, b.cutoff from college c , branch b where c.cid=b.cid and b.cutoff>%s",ro)
+            cur.execute("select c.cid,c.cname,c.loc,b.bname,b.seats,b.fees, b.cutoff from college c , branch b where c.cid=b.cid and b.cutoff<%s",ro)
         elif branch == 'all':
-            cur.execute("select c.cid,c.cname,c.loc,b.bname,b.seats,b.fees,b.cutoff from college c , branch b where c.cid=b.cid and b.cutoff>%s and loc=%s",( ro, loc))
+            cur.execute("select c.cid,c.cname,c.loc,b.bname,b.seats,b.fees,b.cutoff from college c , branch b where c.cid=b.cid and b.cutoff<%s and loc=%s",( ro, loc))
         elif loc == 'all':
-            cur.execute("select c.cid,c.cname,c.loc,b.bname,b.seats,b.fees ,b.cutoff from college c , branch b where c.cid=b.cid and b.cutoff>%s and bname=%s", (ro, branch))
+            cur.execute("select c.cid,c.cname,c.loc,b.bname,b.seats,b.fees ,b.cutoff from college c , branch b where c.cid=b.cid and b.cutoff<%s and bname=%s", (ro, branch))
         else:
-            cur.execute("select c.cid,c.cname,c.loc,b.bname,b.seats,b.fees ,b.cutoff from college c , branch b where c.cid=b.cid and b.cutoff>%s and bname=%s and loc=%s", (ro, branch, loc))
+            cur.execute("select c.cid,c.cname,c.loc,b.bname,b.seats,b.fees ,b.cutoff from college c , branch b where c.cid=b.cid and b.cutoff<%s and bname=%s and loc=%s", (ro, branch, loc))
         res = cur.fetchall()
         return render_template('search.html', roll=roll, loc=loc, branch=branch, res=res)
     cur.execute("select precent from student where roll_no=%s ", roll)
     ro = cur.fetchone()
     ro = str(ro[0])
-    cur.execute("select c.cid,c.cname,c.loc,b.bname,b.seats,b.fees,b.cutoff from college c , branch b where c.cid=b.cid and b.cutoff>%s",ro)
+    cur.execute("select c.cid,c.cname,c.loc,b.bname,b.seats,b.fees,b.cutoff from college c , branch b where c.cid=b.cid and b.cutoff<%s",ro)
     res = cur.fetchall()
     return render_template('search.html', roll=roll, loc=loc, branch=branch,res=res)
 ######################################################## See Achievements #########################################
@@ -176,11 +176,13 @@ def see_achivements():
 @app.route('/studentupdate/<roll>', methods=['GET','POST'])
 @is_logged_in
 def studentupdate(roll):
-    if request.form == 'POST':
+    if request.method == 'POST':
+        #print('hi')
         stdup = request.form
-        new_pass = stdup['pass']
-        new_email = stdup['email']
-        new_phone = stdup['phno']
+        new_pass = str(stdup['pass'])
+        #print(new_pass)
+        new_email = str(stdup['email'])
+        new_phone = str(stdup['phno'])
         cur.execute("update student set email=%s where roll_no=%s",(new_email, roll))
         conn.commit()
         cur.execute("update student set phno=%s where roll_no=%s",(new_phone, roll))
@@ -387,9 +389,9 @@ def admin():
     if request.method == 'POST':
         user_details = request.form
         password = str(user_details['pass'])
-        print(password)
+        #print(password)
         id = int(user_details['id'])
-        print(id)
+        #print(id)
         cur.execute("select aid from admin where aid =%s;", id)
         mroll = cur.fetchone()
         mroll = int(mroll[0])
